@@ -1,0 +1,48 @@
+{
+  "timestamp_utc": "2026-02-05T23:04:51.161614+00:00",
+  "host": "Venkat",
+  "os": {
+    "system": "Linux",
+    "release": "6.6.87.2-microsoft-standard-WSL2",
+    "version": "#1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025",
+    "machine": "x86_64"
+  },
+  "uptime_seconds": 6158.23,
+  "metrics": {
+    "cpu_percent": 35.2,
+    "memory": {
+      "total_bytes": 7895973888,
+      "available_bytes": 7286099968,
+      "used_bytes": 609873920,
+      "percent_used": 7.72
+    },
+    "disk": {
+      "path": "/",
+      "total_bytes": 1081101176832,
+      "used_bytes": 2015866880,
+      "free_bytes": 1024092954624,
+      "percent_used": 0.19
+    }
+  },
+  "checks": {
+    "cpu": {
+      "value": 35.2,
+      "status": "OK",
+      "warn_at": 80.0,
+      "crit_at": 95.0
+    },
+    "memory": {
+      "value": 7.72,
+      "status": "OK",
+      "warn_at": 80.0,
+      "crit_at": 95.0
+    },
+    "disk": {
+      "value": 0.19,
+      "status": "OK",
+      "warn_at": 80.0,
+      "crit_at": 95.0
+    }
+  },
+  "overall_status": "OK"
+}
