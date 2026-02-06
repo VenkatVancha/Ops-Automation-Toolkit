@@ -16,7 +16,7 @@ Generates a JSON health snapshot for the current Linux system (works in WSL2).
 ### Run
 ```bash
 python3 src/healthcheck.py
-
+```
 
 
 
@@ -33,7 +33,7 @@ Parses an auth log and outputs a JSON summary of SSH authentication events.
 ### Run (system auth log)
 ```bash
 python3 src/logscan.py
-
+```
 
 
 
@@ -44,7 +44,7 @@ Runs the full toolkit and writes JSON outputs to a timestamped directoty.
 ### Run
 ```bash
 ./scripts/run_toolkit.sh
-
+```
 
 
 
