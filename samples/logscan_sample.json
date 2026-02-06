@@ -1,0 +1,46 @@
+{
+  "timestamp_utc": "2026-02-06T00:27:42.578793+00:00",
+  "log_path": "/home/raman/ops-automation-toolkit/samples/auth_sample.log",
+  "lines_scanned": 4,
+  "summary": {
+    "counts": {
+      "failed_password": 2,
+      "accepted_password": 1,
+      "invalid_user": 1
+    },
+    "top": {
+      "ips": [
+        {
+          "key": "203.0.113.10",
+          "count": 2
+        },
+        {
+          "key": "198.51.100.25",
+          "count": 1
+        },
+        {
+          "key": "192.0.2.50",
+          "count": 1
+        }
+      ],
+      "users": [
+        {
+          "key": "admin",
+          "count": 1
+        },
+        {
+          "key": "root",
+          "count": 1
+        },
+        {
+          "key": "test",
+          "count": 1
+        },
+        {
+          "key": "venkat",
+          "count": 1
+        }
+      ]
+    }
+  }
+}
