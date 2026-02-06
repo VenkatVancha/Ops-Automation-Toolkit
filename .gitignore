@@ -9,3 +9,6 @@ __pycache__/
 
 # Logs / outputs
 *.log
+
+# Allow Sample Logs
+!samples/*.log
