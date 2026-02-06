@@ -12,3 +12,7 @@ __pycache__/
 
 # Allow Sample Logs
 !samples/*.log
+
+# Generated outputs
+outputs/
+latest/
