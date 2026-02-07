@@ -10,6 +10,7 @@ DEFAULT_AUTH_LOG = "/var/log/auth.log"
 
 # Ubuntu auth.log patterns (common SSH auth lines)
 RE_FAILED_PASSWORD = re.compile(r"Failed password for (invalid user )?(?P<user>\S+) from (?P<ip>\S+)")
+RE_FAILED_PUBLICKEY = re.compile(r"Failed publickey for (invalid user )?(?P<user>\S+) from (?P<ip>\S+)")
 RE_ACCEPTED_PASSWORD = re.compile(r"Accepted password for (?P<user>\S+) from (?P<ip>\S+)")
 RE_INVALID_USER = re.compile(r"Invalid user (?P<user>\S+) from (?P<ip>\S+)")
 
@@ -42,6 +43,7 @@ def top_n(counter: dict[str, int], n: int) -> list[dict]:
 def scan_auth_log(lines: list[str]) -> dict:
     counts = {
         "failed_password": 0,
+        "failed_publickey": 0,
         "accepted_password": 0,
         "invalid_user": 0,
     }
@@ -53,6 +55,13 @@ def scan_auth_log(lines: list[str]) -> dict:
         m = RE_FAILED_PASSWORD.search(line)
         if m:
             counts["failed_password"] += 1
+            bump(ips, m.group("ip"))
+            bump(users, m.group("user"))
+            continue
+
+        m = RE_FAILED_PUBLICKEY.search(line)
+        if m:
+            counts["failed_publickey"] += 1
             bump(ips, m.group("ip"))
             bump(users, m.group("user"))
             continue
@@ -82,7 +91,7 @@ def scan_auth_log(lines: list[str]) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Scan Ubuntu auth.log and summarize SSH auth events (JSON output)."
+        description="Scan auth logs and summarize SSH auth events (JSON output)."
     )
     parser.add_argument("--log", default=DEFAULT_AUTH_LOG, help=f"Log path (default: {DEFAULT_AUTH_LOG})")
     args = parser.parse_args()
@@ -102,3 +111,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
